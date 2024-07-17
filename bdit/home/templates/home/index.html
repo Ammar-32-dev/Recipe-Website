@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block start %}
+
+
+    <h1>This is Lorem ipsum dolor sit, amet consectetur </h1>
+
+    <a href="/contact/">
+      contact
+    </a>
+    |
+    <a href="/aboutus/">
+      about us
+    </a>
+
+    <table class="container">
+        
+        <thead>
+          <tr>
+            <th scope="col">Sr. No</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Age</th>
+            <th scope="col">Can vote</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for people in peoples%}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{people.first}}</td>
+            <td>{{people.last}}</td>
+            <td>@{{people.age}}</td>
+            <td>
+                {% if people.age >= 18 %}
+                Yes
+                {% else %}
+                No
+                {% endif %}
+            </td>
+          </tr>
+         {% endfor %}
+        </tbody>
+    </table>
+
+    {{text}}
+    <br><br>
+
+    {% if "banana" in fruits %}
+    <h1>No Banana is not available</h1>
+
+    {% elif 'apple' in fruits %}
+    <h1>Yes Apple is available</h1>
+
+    {% else %}
+    <h1>No</h1>
+
+    {% endif %}
+
+
+
+{% endblock %}
